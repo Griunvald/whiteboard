@@ -25,7 +25,9 @@ const Navbar = () => {
           </Item>
           <MenuItem position="right">
             <Button secondary>Log in</Button>
-            <Button primary>Sign up</Button>
+            <Button inverted color="green">
+              Sign up
+            </Button>
           </MenuItem>
         </Container>
       </Menu>
