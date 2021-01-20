@@ -1,9 +1,13 @@
 import React from 'react';
+import Navbar from './Navbar';
+import { Route } from 'react-router-dom';
+import Home from './Home';
 
 const App = () => {
   return (
     <>
-      <h1>Whiteboard app</h1>
+      <Navbar />
+      <Route path="/" exact component={Home} />
     </>
   );
 };
