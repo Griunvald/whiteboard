@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { openModal } from '../actions/modalActions';
 import LoginModal from '../components/form/LoginModal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,6 +17,7 @@ import { signOutUser } from '../actions/authActions';
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const isAuthenticated = useSelector((state) => state.auth.authenticated);
   return (
     <div>
@@ -33,7 +34,13 @@ const Navbar = () => {
           <MenuItem position="right">
             {isAuthenticated ? (
               <>
-                <Button secondary onClick={() => dispatch(signOutUser())}>
+                <Button
+                  secondary
+                  onClick={() => {
+                    dispatch(signOutUser());
+                    history.push('/');
+                  }}
+                >
                   Log out
                 </Button>
               </>
