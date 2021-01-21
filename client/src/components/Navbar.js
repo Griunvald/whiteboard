@@ -13,6 +13,7 @@ import {
   Item,
   Button,
 } from 'semantic-ui-react';
+import { signOutUser } from '../actions/authActions';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,9 @@ const Navbar = () => {
           <MenuItem position="right">
             {isAuthenticated ? (
               <>
-                <Button secondary>Log out</Button>
+                <Button secondary onClick={() => dispatch(signOutUser())}>
+                  Log out
+                </Button>
               </>
             ) : (
               <>
