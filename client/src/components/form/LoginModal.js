@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import CustomInput from '../common/form/CustomInput';
+import { signInUser } from '../../actions/authActions';
+
 const LoginModal = () => {
   const open = useSelector((state) => state.loginModal.open);
   const dispatch = useDispatch();
@@ -24,7 +26,11 @@ const LoginModal = () => {
               email: Yup.string().required().email(),
               password: Yup.string().required(),
             })}
-            onSubmit={(values) => console.log(values)}
+            onSubmit={(values, { setSubmitting }) => {
+              dispatch(signInUser(values));
+              setSubmitting(false);
+              dispatch({ type: 'CLOSE_MODAL' });
+            }}
           >
             {({ isSubmitting, isValid, dirty }) => (
               <Form className="ui form">
