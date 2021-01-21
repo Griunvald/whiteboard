@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { openModal } from '../actions/modalActions';
 import LoginModal from '../components/form/LoginModal';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Menu,
   Container,
@@ -16,6 +16,7 @@ import {
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.authenticated);
   return (
     <div>
       <LoginModal />
@@ -29,12 +30,20 @@ const Navbar = () => {
             </ItemContent>
           </Item>
           <MenuItem position="right">
-            <Button secondary onClick={() => dispatch(openModal())}>
-              Log in
-            </Button>
-            <Button inverted color="green">
-              Sign up
-            </Button>
+            {isAuthenticated ? (
+              <>
+                <Button secondary>Log out</Button>
+              </>
+            ) : (
+              <>
+                <Button secondary onClick={() => dispatch(openModal())}>
+                  Log in
+                </Button>
+                <Button inverted color="green">
+                  Sign up
+                </Button>
+              </>
+            )}
           </MenuItem>
         </Container>
       </Menu>
