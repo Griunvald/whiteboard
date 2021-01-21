@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button } from 'semantic-ui-react';
+import { Modal, Button, Header } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
@@ -17,7 +17,9 @@ const LoginModal = () => {
         size="mini"
       >
         <Modal.Header>
-          <h2>Login modal</h2>
+          <Header as="h3" textAlign="center">
+            Log in
+          </Header>
         </Modal.Header>
         <Modal.Content>
           <Formik
