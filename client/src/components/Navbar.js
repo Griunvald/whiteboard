@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { openModal, closeModal } from '../actions/modalActions';
+import { openModal } from '../actions/modalActions';
 import LoginModal from '../components/form/LoginModal';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   Menu,
   Container,
@@ -16,10 +16,9 @@ import {
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const modalToggle = useSelector((state) => state.loginModal.open);
   return (
     <div>
-      {modalToggle ? <LoginModal /> : null}
+      <LoginModal />
       <Menu borderless inverted fixed="top">
         <Container>
           <Item>
