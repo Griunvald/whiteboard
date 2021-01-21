@@ -35,7 +35,7 @@ const LoginModal = () => {
             }}
           >
             {({ isSubmitting, isValid, dirty }) => (
-              <Form className="ui form">
+              <Form className="ui form" autocomplete="off">
                 <CustomInput
                   name="email"
                   placeholder="Email address"
