@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { openModal, closeModal } from '../actions/modalActions';
+import LoginModal from '../components/form/LoginModal';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Menu,
   Container,
@@ -12,9 +15,12 @@ import {
 } from 'semantic-ui-react';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const modalToggle = useSelector((state) => state.loginModal.open);
   return (
     <div>
-      <Menu borderless fixed="top" inverted>
+      {modalToggle ? <LoginModal /> : null}
+      <Menu borderless inverted fixed="top">
         <Container>
           <Item>
             <ItemContent>
@@ -24,7 +30,9 @@ const Navbar = () => {
             </ItemContent>
           </Item>
           <MenuItem position="right">
-            <Button secondary>Log in</Button>
+            <Button secondary onClick={() => dispatch(openModal())}>
+              Log in
+            </Button>
             <Button inverted color="green">
               Sign up
             </Button>
