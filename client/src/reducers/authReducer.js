@@ -1,3 +1,6 @@
+const SIGN_IN_USER = 'SIGN_IN_USER';
+const SIGN_OUT_USER = 'SIGN_OUT_USER';
+
 const initialState = {
   authenticated: false,
   currentUser: null,
@@ -5,7 +8,7 @@ const initialState = {
 
 const authReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case 'SIGN_IN_USER':
+    case SIGN_IN_USER:
       return {
         ...state,
         authenticated: true,
@@ -14,7 +17,7 @@ const authReducer = (state = initialState, { type, payload }) => {
           photoURL: payload.photoURL,
         },
       };
-    case 'SIGN_OUT_USER':
+    case SIGN_OUT_USER:
       return {
         ...state,
         authenticated: false,
