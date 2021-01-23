@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import CustomInput from '../common/form/CustomInput';
-import { signInUser } from '../../actions/authActions';
+import { logInWithEmail } from '../../utils/firebaseService';
 
 const LoginModal = () => {
   const open = useSelector((state) => state.loginModal.open);
@@ -28,10 +28,14 @@ const LoginModal = () => {
               email: Yup.string().required().email(),
               password: Yup.string().required(),
             })}
-            onSubmit={(values, { setSubmitting }) => {
-              dispatch(signInUser(values));
-              setSubmitting(false);
-              dispatch({ type: 'CLOSE_MODAL' });
+            onSubmit={async (values, { setSubmitting }) => {
+              try {
+                await logInWithEmail(values);
+                setSubmitting(false);
+                dispatch({ type: 'CLOSE_MODAL' });
+              } catch (error) {
+                console.log(error);
+              }
             }}
           >
             {({ isSubmitting, isValid, dirty }) => (
