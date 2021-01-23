@@ -4,6 +4,7 @@ import { openModal } from '../actions/modalActions';
 import LoginModal from '../components/form/LoginModal';
 import { useDispatch, useSelector } from 'react-redux';
 import avatar from '../assets/user.png';
+import { logOutFirebase } from '../utils/firebaseService';
 import {
   Menu,
   Container,
@@ -15,13 +16,21 @@ import {
   Button,
   Image,
 } from 'semantic-ui-react';
-import { signOutUser } from '../actions/authActions';
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const isAuthenticated = useSelector((state) => state.auth.authenticated);
   const currentUser = useSelector((state) => state.auth);
+
+  const handleLogOut = async () => {
+    try {
+      await logOutFirebase();
+      history.push('/');
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <LoginModal />
@@ -37,13 +46,7 @@ const Navbar = () => {
           <MenuItem position="right">
             {isAuthenticated ? (
               <>
-                <Button
-                  secondary
-                  onClick={() => {
-                    dispatch(signOutUser());
-                    history.push('/');
-                  }}
-                >
+                <Button secondary onClick={handleLogOut}>
                   Log out
                 </Button>
                 <Image
