@@ -43,12 +43,12 @@ const LoginModal = () => {
                 <CustomInput
                   name="email"
                   placeholder="Email address"
-                ></CustomInput>
+                />
                 <CustomInput
                   name="password"
                   placeholder="Password"
                   type="password"
-                ></CustomInput>
+                />
                 <Button
                   loading={isSubmitting}
                   disabled={!isValid || !dirty || isSubmitting}
