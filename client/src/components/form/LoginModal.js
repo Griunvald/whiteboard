@@ -12,7 +12,7 @@ const LoginModal = () => {
   const dispatch = useDispatch();
   return (
     <div>
-      <ModalWrapper size="large" header="Log in">
+      <ModalWrapper size="tiny" header="Log in">
         <Modal.Content>
           <Formik
             initialValues={{ email: '', password: '' }}
@@ -51,11 +51,6 @@ const LoginModal = () => {
             )}
           </Formik>
         </Modal.Content>
-        <Modal.Actions>
-          <Button negative onClick={() => dispatch({ type: 'CLOSE_MODAL' })}>
-            Close
-          </Button>
-        </Modal.Actions>
       </ModalWrapper>
     </div>
   );
