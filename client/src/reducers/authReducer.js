@@ -13,6 +13,7 @@ const authReducer = (state = initialState, { type, payload }) => {
         ...state,
         authenticated: true,
         currentUser: {
+          displayName: payload.displayName,
           email: payload.email,
           photoURL: payload.photoURL,
         },

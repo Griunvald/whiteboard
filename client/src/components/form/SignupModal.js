@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import DynamicInput from './DynamicInput';
-import { logInWithEmail } from '../../utils/firebaseService';
+import { signInFirebase } from '../../utils/firebaseService';
 import ModalWrapper from '../modal/ModalWrapper';
 
 const SignupModal = () => {
@@ -13,15 +13,15 @@ const SignupModal = () => {
     <div>
       <ModalWrapper size="tiny" header="Sign up">
         <Formik
-          initialValues={{ username: '', email: '', password: '' }}
+          initialValues={{ displayName: '', email: '', password: '' }}
           validationSchema={Yup.object({
-            username: Yup.string().required(),
+            displayName: Yup.string().required(),
             email: Yup.string().required().email(),
             password: Yup.string().required(),
           })}
           onSubmit={async (values, { setSubmitting, setErrors }) => {
             try {
-              await logInWithEmail(values);
+              await signInFirebase(values);
               setSubmitting(false);
               dispatch({ type: 'CLOSE_MODAL' });
             } catch (error) {
@@ -31,7 +31,7 @@ const SignupModal = () => {
         >
           {({ isSubmitting, isValid, dirty, errors }) => (
             <Form className="ui form" autoComplete="off">
-              <DynamicInput name="username" placeholder="Username" />
+              <DynamicInput name="displayName" placeholder="Display name" />
               <DynamicInput name="email" placeholder="Email address" />
               <DynamicInput
                 name="password"
