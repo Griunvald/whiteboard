@@ -1,15 +1,17 @@
-const initialState = {
-  open: false,
-  dimmer: undefined,
-};
-const modalReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'OPEN_MODAL':
-      return { open: true };
-    case 'CLOSE_MODAL':
-      return { open: false };
+const OPEN_MODAL = 'OPEN_MODAL';
+const CLOSE_MODAL = 'CLOSE_MODAL';
+
+const initialState = null;
+const modalReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case OPEN_MODAL:
+      const { modalType, modalProps } = payload;
+
+      return { ...state, open: true, modalType, modalProps };
+    case CLOSE_MODAL:
+      return { ...state, open: false };
     default:
-      return { open: false };
+      return state;
   }
 };
 

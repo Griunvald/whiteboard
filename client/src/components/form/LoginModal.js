@@ -1,26 +1,18 @@
 import React from 'react';
-import { Modal, Button, Header } from 'semantic-ui-react';
-import { useSelector, useDispatch } from 'react-redux';
+import { Modal, Button } from 'semantic-ui-react';
+import { useDispatch } from 'react-redux';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import DynamicInput from './DynamicInput';
 import { logInWithEmail } from '../../utils/firebaseService';
+import ModalWrapper from '../modal/ModalWrapper';
 
 const LoginModal = () => {
-  const open = useSelector((state) => state.modal.open);
+  // const open = useSelector((state) => state.modal);
   const dispatch = useDispatch();
   return (
     <div>
-      <Modal
-        open={open}
-        onClose={() => dispatch({ type: 'CLOSE_MODAL' })}
-        size="mini"
-      >
-        <Modal.Header>
-          <Header as="h3" textAlign="center">
-            Log in
-          </Header>
-        </Modal.Header>
+      <ModalWrapper size="large" header="Log in">
         <Modal.Content>
           <Formik
             initialValues={{ email: '', password: '' }}
@@ -64,7 +56,7 @@ const LoginModal = () => {
             Close
           </Button>
         </Modal.Actions>
-      </Modal>
+      </ModalWrapper>
     </div>
   );
 };

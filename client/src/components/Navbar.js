@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { openModal } from '../actions/modalActions';
-import LoginModal from '../components/form/LoginModal';
 
 import { useDispatch, useSelector } from 'react-redux';
 import avatar from '../assets/user.png';
@@ -34,7 +33,6 @@ const Navbar = () => {
   };
   return (
     <div>
-      <LoginModal />
       <Menu borderless inverted fixed="top">
         <Container>
           <Item>
@@ -58,7 +56,16 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <Button secondary onClick={() => dispatch(openModal())}>
+                <Button
+                  secondary
+                  onClick={() =>
+                    dispatch(
+                      openModal({
+                        modalType: 'LoginModal',
+                      })
+                    )
+                  }
+                >
                   Log in
                 </Button>
                 <Button
