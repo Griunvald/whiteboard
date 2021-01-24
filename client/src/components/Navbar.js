@@ -71,7 +71,9 @@ const Navbar = () => {
                 <Button
                   inverted
                   color="green"
-                  onClick={() => dispatch(openModal())}
+                  onClick={() =>
+                    dispatch(openModal({ modalType: 'SignupModal' }))
+                  }
                 >
                   Sign up
                 </Button>
