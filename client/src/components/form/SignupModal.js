@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Label } from 'semantic-ui-react';
 import { useDispatch } from 'react-redux';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
@@ -19,17 +19,17 @@ const SignupModal = () => {
             email: Yup.string().required().email(),
             password: Yup.string().required(),
           })}
-          onSubmit={async (values, { setSubmitting }) => {
+          onSubmit={async (values, { setSubmitting, setErrors }) => {
             try {
               await logInWithEmail(values);
               setSubmitting(false);
               dispatch({ type: 'CLOSE_MODAL' });
             } catch (error) {
-              console.log(error);
+              setErrors({ auth: error.message });
             }
           }}
         >
-          {({ isSubmitting, isValid, dirty }) => (
+          {({ isSubmitting, isValid, dirty, errors }) => (
             <Form className="ui form" autoComplete="off">
               <DynamicInput name="username" placeholder="Username" />
               <DynamicInput name="email" placeholder="Email address" />
@@ -38,6 +38,14 @@ const SignupModal = () => {
                 placeholder="Password"
                 type="password"
               />
+              {errors.auth && (
+                <Label
+                  basic
+                  color="red"
+                  style={{ marginBottom: '10px' }}
+                  content={errors.auth}
+                />
+              )}
               <Button
                 loading={isSubmitting}
                 disabled={!isValid || !dirty || isSubmitting}
