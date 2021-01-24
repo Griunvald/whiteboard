@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { openModal } from '../actions/modalActions';
 import LoginModal from '../components/form/LoginModal';
-import SignupModal from "./form/SignupModal";
+
 import { useDispatch, useSelector } from 'react-redux';
 import avatar from '../assets/user.png';
 import { logOutFirebase } from '../utils/firebaseService';
@@ -35,7 +35,6 @@ const Navbar = () => {
   return (
     <div>
       <LoginModal />
-      <SignupModal />
       <Menu borderless inverted fixed="top">
         <Container>
           <Item>
@@ -62,7 +61,11 @@ const Navbar = () => {
                 <Button secondary onClick={() => dispatch(openModal())}>
                   Log in
                 </Button>
-                <Button inverted color="green" onClick={() => dispatch(openModal())}>
+                <Button
+                  inverted
+                  color="green"
+                  onClick={() => dispatch(openModal())}
+                >
                   Sign up
                 </Button>
               </>

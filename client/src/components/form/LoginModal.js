@@ -3,11 +3,11 @@ import { Modal, Button, Header } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import CustomInput from '../common/form/CustomInput';
+import DynamicInput from './DynamicInput';
 import { logInWithEmail } from '../../utils/firebaseService';
 
 const LoginModal = () => {
-  const open = useSelector((state) => state.loginModal.open);
+  const open = useSelector((state) => state.modal.open);
   const dispatch = useDispatch();
   return (
     <div>
@@ -40,11 +40,8 @@ const LoginModal = () => {
           >
             {({ isSubmitting, isValid, dirty }) => (
               <Form className="ui form" autoComplete="off">
-                <CustomInput
-                  name="email"
-                  placeholder="Email address"
-                />
-                <CustomInput
+                <DynamicInput name="email" placeholder="Email address" />
+                <DynamicInput
                   name="password"
                   placeholder="Password"
                   type="password"

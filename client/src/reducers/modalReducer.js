@@ -2,7 +2,7 @@ const initialState = {
   open: false,
   dimmer: undefined,
 };
-const loginModalReducer = (state = initialState, action) => {
+const modalReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'OPEN_MODAL':
       return { open: true };
@@ -13,4 +13,4 @@ const loginModalReducer = (state = initialState, action) => {
   }
 };
 
-export default loginModalReducer;
+export default modalReducer;
