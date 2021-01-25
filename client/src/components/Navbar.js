@@ -3,7 +3,6 @@ import { Link, useHistory } from 'react-router-dom';
 import { openModal } from '../actions/modalActions';
 
 import { useDispatch, useSelector } from 'react-redux';
-import avatar from '../assets/user.png';
 import { logOutFirebase } from '../utils/firebaseService';
 import {
   Menu,

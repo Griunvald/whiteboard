@@ -31,7 +31,9 @@ export const socialLogin = async (selectProvider) => {
     provider = new firebase.auth.FacebookAuthProvider();
   }
   if (selectProvider === 'google') {
-    provider = new firebase.auth.GithubAuthProvider();
+    provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('profile');
+    provider.addScope('email');
   }
   try {
     const response = await firebase.auth().signInWithPopup(provider);
