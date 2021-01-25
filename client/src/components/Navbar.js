@@ -15,6 +15,7 @@ import {
   Item,
   Button,
   Image,
+  Dropdown,
 } from 'semantic-ui-react';
 
 const Navbar = () => {
@@ -45,14 +46,19 @@ const Navbar = () => {
           <MenuItem position="right">
             {isAuthenticated ? (
               <>
-                <Button secondary onClick={handleLogOut}>
-                  Log out
-                </Button>
                 <Image
                   avatar
                   spaced="right"
                   src={currentUser.photoURL || avatar}
                 />
+                <Dropdown pointing="top left" text="Joan">
+                  <Dropdown.Menu>
+                    <Dropdown.Item
+                      text="Log Out"
+                      onClick={handleLogOut}
+                    ></Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </>
             ) : (
               <>
