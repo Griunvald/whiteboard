@@ -22,7 +22,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const isAuthenticated = useSelector((state) => state.auth.authenticated);
-  const currentUser = useSelector((state) => state.auth);
+  const currentUser = useSelector((state) => state.auth.currentUser);
 
   const handleLogOut = async () => {
     try {
@@ -49,9 +49,12 @@ const Navbar = () => {
                 <Image
                   avatar
                   spaced="right"
-                  src={currentUser.photoURL || avatar}
+                  src={
+                    currentUser.photoURL ||
+                    'https://graph.facebook.com/100179352095773/picture'
+                  }
                 />
-                <Dropdown pointing="top left" text="Joan">
+                <Dropdown pointing="top right" text={currentUser.displayName}>
                   <Dropdown.Menu>
                     <Dropdown.Item
                       text="Log Out"
