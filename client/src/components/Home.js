@@ -1,7 +1,12 @@
 import React from 'react';
+import Canvas from './Canvas';
 
 const Home = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Canvas />
+    </div>
+  );
 };
 
 export default Home;
