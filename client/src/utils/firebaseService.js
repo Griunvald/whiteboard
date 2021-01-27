@@ -45,6 +45,14 @@ export const socialLogin = async (selectProvider) => {
   }
 };
 
-export const AddCanvasData = (data) => {
+export const addCanvasData = (data) => {
   return firebase.database().ref('canvas').push(data);
+};
+
+export const getCanvasData = () => {
+  const ref = firebase.database().ref('canvas');
+  ref.on('value', (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+  });
 };
