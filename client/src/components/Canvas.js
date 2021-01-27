@@ -10,18 +10,17 @@ const Canvas = (data) => {
 
   const draw = (p) => {
     if (p.mouseIsPressed) {
-      p.point(p.mouseX, p.mouseY);
-      p.stroke('red'); // Change the color
-      p.strokeWeight(10); // Make the points 10 pixels in size
+      p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
+      p.stroke('red');
+      p.strokeWeight(3);
 
       if ((p.pmouseX, p.pmouseY) !== (p.mouseX, p.mouseY)) {
-        console.log(p.mouseX, p.mouseY); //FIXME: Works only with first dot and strokes
+        console.log(p.mouseX, p.mouseY);
       }
 
-      // console.log(p.mouseX, p.mouseY);
-      //FIXME: Comment line below until it;s done, use console.log() instead
+      //FIXME: Comment line below until it's done, use console.log() instead
       // addCanvasData(p.mouseX, p.mouseY);
-      // TODO: Add point to db only if it doesn't exists
+
       // getCanvasData(); // FIXME: move this function call out of mouseIsPressed
     }
   };
