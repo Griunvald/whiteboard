@@ -1,27 +1,32 @@
 import React from 'react';
-
+import firebase from '../config/firebase';
 import Sketch from 'react-p5';
-import { addCanvasData, getCanvasData } from '../utils/firebaseService';
+
+const database = firebase.database();
 
 const Canvas = (data) => {
   const setup = (p, canvasParentRef) => {
     p.createCanvas(1500, 1500).parent(canvasParentRef);
+
+    database.ref('draw').on('child_added', function (data) {
+      p.line(
+        data.val().pmouseX,
+        data.val().pmouseY,
+        data.val().mouseX,
+        data.val().mouseY
+      );
+    });
   };
 
   const draw = (p) => {
     if (p.mouseIsPressed && (p.mouseX || p.mouseY) > 0) {
-      p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
-      p.stroke('red');
-      p.strokeWeight(3);
-
-      if ((p.pmouseX, p.pmouseY) !== (p.mouseX, p.mouseY)) {
-        console.log(p.mouseX, p.mouseY);
-      }
-
-      //FIXME: Comment line below until it's done, use console.log() instead
-      // addCanvasData(p.mouseX, p.mouseY);
-
-      // getCanvasData(); // FIXME: move this function call out of mouseIsPressed
+      p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
+      database.ref('draw').push({
+        pmouseX: p.pmouseX,
+        pmouseY: p.pmouseY,
+        mouseX: p.mouseX,
+        mouseY: p.mouseY,
+      });
     }
   };
 
