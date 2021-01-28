@@ -9,7 +9,7 @@ const Canvas = (data) => {
   };
 
   const draw = (p) => {
-    if (p.mouseIsPressed) {
+    if (p.mouseIsPressed && (p.mouseX || p.mouseY) > 0) {
       p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
       p.stroke('red');
       p.strokeWeight(3);
