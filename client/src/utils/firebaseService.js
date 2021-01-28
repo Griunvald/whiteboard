@@ -53,6 +53,6 @@ export const getCanvasData = () => {
   const ref = firebase.database().ref('canvas');
   ref.on('value', (snapshot) => {
     const data = snapshot.val();
-    console.log(data);
+    console.log(Object.values(data));
   });
 };
