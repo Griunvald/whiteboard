@@ -39,7 +39,7 @@ const Toolbar = () => {
       <div className="toolbar-item">
         <Icon name="circle" size="big" fitted color="pink" />
       </div>
-      <div className="toolbar-item">
+      <div className="toolbar-item trash">
         <Icon
           name="trash"
           size="big"
