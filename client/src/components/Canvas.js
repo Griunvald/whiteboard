@@ -16,6 +16,9 @@ const Canvas = (data) => {
         data.val().mouseY
       );
     });
+    database.ref('draw').on('child_removed', function (data) {
+      p.background('white');
+    });
   };
 
   const draw = (p) => {
