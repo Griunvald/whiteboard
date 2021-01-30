@@ -6,7 +6,7 @@ const database = firebase.database();
 
 const Canvas = (data) => {
   const setup = (p, canvasParentRef) => {
-    p.createCanvas(1500, 1500).parent(canvasParentRef);
+    p.createCanvas(1000, 1000).parent(canvasParentRef);
 
     database.ref('draw').on('child_added', function (data) {
       p.line(

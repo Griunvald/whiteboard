@@ -4,9 +4,13 @@ import Toolbar from './Toolbar';
 
 const Home = () => {
   return (
-    <div>
-      <Toolbar />
-      <Canvas />
+    <div className="home-layout">
+      <div className="left">
+        <Toolbar />
+      </div>
+      <div className="right">
+        <Canvas />
+      </div>
     </div>
   );
 };
