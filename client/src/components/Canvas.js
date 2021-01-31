@@ -18,7 +18,7 @@ const Canvas = (data) => {
         data.val().mouseX,
         data.val().mouseY
       );
-      p.stroke(data.val().currentColor + '');
+      p.stroke(data.val().stroke);
     });
 
     database.ref('draw').on('child_removed', function (data) {
@@ -29,7 +29,7 @@ const Canvas = (data) => {
   const draw = (p) => {
     if (p.mouseIsPressed && (p.mouseX || p.mouseY) > 0) {
       p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
-      p.stroke(currentColor);
+      p.stroke(currentColor + '');
       database.ref('draw').push({
         pmouseX: p.pmouseX,
         pmouseY: p.pmouseY,
