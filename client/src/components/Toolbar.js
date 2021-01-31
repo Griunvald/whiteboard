@@ -23,7 +23,7 @@ const Toolbar = () => {
           name="pencil alternate"
           size="big"
           fitted
-          onClick={() => dispatch(selectColor('BLACK'))}
+          onClick={() => dispatch(selectColor('black'))}
         />
       </div>
       <div className="toolbar-item">
@@ -31,7 +31,7 @@ const Toolbar = () => {
           name="eraser"
           size="big"
           fitted
-          onClick={() => dispatch(selectColor('WHITE'))}
+          onClick={() => dispatch(selectColor('white'))}
         />
       </div>
       <div className="toolbar-item">
@@ -40,7 +40,7 @@ const Toolbar = () => {
           size="big"
           fitted
           color="black"
-          onClick={() => dispatch(selectColor('BLACK'))}
+          onClick={() => dispatch(selectColor('black'))}
         />
       </div>
       <div className="toolbar-item">
@@ -49,7 +49,7 @@ const Toolbar = () => {
           size="big"
           fitted
           color="red"
-          onClick={() => dispatch(selectColor('RED'))}
+          onClick={() => dispatch(selectColor('red'))}
         />
       </div>
       <div className="toolbar-item">
@@ -58,7 +58,7 @@ const Toolbar = () => {
           size="big"
           fitted
           color="green"
-          onClick={() => dispatch(selectColor('GREEN'))}
+          onClick={() => dispatch(selectColor('green'))}
         />
       </div>
       <div className="toolbar-item">
@@ -67,7 +67,7 @@ const Toolbar = () => {
           size="big"
           fitted
           color="blue"
-          onClick={() => dispatch(selectColor('BLUE'))}
+          onClick={() => dispatch(selectColor('blue'))}
         />
       </div>
       <div className="toolbar-item">
@@ -76,7 +76,7 @@ const Toolbar = () => {
           size="big"
           fitted
           color="orange"
-          onClick={() => dispatch(selectColor('ORANGE'))}
+          onClick={() => dispatch(selectColor('orange'))}
         />
       </div>
       <div className="toolbar-item">
@@ -85,7 +85,7 @@ const Toolbar = () => {
           size="big"
           fitted
           color="pink"
-          onClick={() => dispatch(selectColor('PINK'))}
+          onClick={() => dispatch(selectColor('hotpink'))}
         />
       </div>
       <div className="toolbar-item trash">
