@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
 import firebase from '../config/firebase';
-import { selectColor } from '../actions/toolbarActions';
+import { selectColor, selectSize } from '../actions/toolbarActions';
 import { useDispatch } from 'react-redux';
 const database = firebase.database();
 
@@ -32,6 +32,30 @@ const Toolbar = () => {
           size="big"
           fitted
           onClick={() => dispatch(selectColor('white'))}
+        />
+      </div>
+      <div className="toolbar-item">
+        <Icon
+          name="square full"
+          size="mini"
+          fitted
+          onClick={() => dispatch(selectSize(2))}
+        />
+      </div>
+      <div className="toolbar-item">
+        <Icon
+          name="square full"
+          size="tiny"
+          fitted
+          onClick={() => dispatch(selectSize(3))}
+        />
+      </div>
+      <div className="toolbar-item">
+        <Icon
+          name="square full"
+          size="small"
+          fitted
+          onClick={() => dispatch(selectSize(4))}
         />
       </div>
       <div className="toolbar-item">
