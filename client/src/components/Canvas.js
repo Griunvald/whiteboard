@@ -7,6 +7,7 @@ const database = firebase.database();
 
 const Canvas = (data) => {
   const currentColor = useSelector((state) => state.toolbar.color);
+  const currentStrokeWeight = useSelector((state) => state.toolbar.size);
   console.log(currentColor);
   const setup = (p, canvasParentRef) => {
     p.createCanvas(1000, 1000).parent(canvasParentRef);
@@ -19,6 +20,7 @@ const Canvas = (data) => {
         data.val().mouseY
       );
       p.stroke(data.val().stroke);
+      p.strokeWeight(data.val().strokeWeight);
     });
 
     database.ref('draw').on('child_removed', function (data) {
@@ -30,12 +32,14 @@ const Canvas = (data) => {
     if (p.mouseIsPressed && (p.mouseX || p.mouseY) > 0) {
       p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
       p.stroke(currentColor + '');
+      p.strokeWeight(currentStrokeWeight);
       database.ref('draw').push({
         pmouseX: p.pmouseX,
         pmouseY: p.pmouseY,
         mouseX: p.mouseX,
         mouseY: p.mouseY,
         stroke: currentColor + '',
+        strokeWeight: currentStrokeWeight,
       });
     }
   };
