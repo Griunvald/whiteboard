@@ -32,4 +32,5 @@
 
 .home-layout .right {
   flex: 1;
+  cursor: crosshair;
 }
