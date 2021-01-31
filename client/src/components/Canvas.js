@@ -1,10 +1,12 @@
 import React from 'react';
 import firebase from '../config/firebase';
 import Sketch from 'react-p5';
+import { useSelector } from 'react-redux';
 
 const database = firebase.database();
 
 const Canvas = (data) => {
+  const currentColor = useSelector((state) => state.toolbar.color);
   const setup = (p, canvasParentRef) => {
     p.createCanvas(1000, 1000).parent(canvasParentRef);
 
@@ -15,7 +17,9 @@ const Canvas = (data) => {
         data.val().mouseX,
         data.val().mouseY
       );
+      p.stroke(currentColor);
     });
+
     database.ref('draw').on('child_removed', function (data) {
       p.background('white');
     });
@@ -24,6 +28,7 @@ const Canvas = (data) => {
   const draw = (p) => {
     if (p.mouseIsPressed && (p.mouseX || p.mouseY) > 0) {
       p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
+      p.stroke(currentColor);
       database.ref('draw').push({
         pmouseX: p.pmouseX,
         pmouseY: p.pmouseY,
