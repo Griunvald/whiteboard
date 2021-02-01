@@ -37,19 +37,19 @@ const Toolbar = () => {
           </Item.Content>
         </Item>
 
-        <Item className="toolbar-item" onClick={() => dispatch(selectSize(2))}>
+        <Item className="toolbar-item" onClick={() => dispatch(selectSize(1))}>
           <Item.Content>
             <Icon name="square full" size="mini" fitted />
           </Item.Content>
         </Item>
 
-        <Item className="toolbar-item" onClick={() => dispatch(selectSize(3))}>
+        <Item className="toolbar-item" onClick={() => dispatch(selectSize(2))}>
           <Item.Content>
             <Icon name="square full" size="tiny" fitted />
           </Item.Content>
         </Item>
 
-        <Item className="toolbar-item" onClick={() => dispatch(selectSize(4))}>
+        <Item className="toolbar-item" onClick={() => dispatch(selectSize(3))}>
           <Item.Content>
             <Icon name="square full" size="small" fitted />
           </Item.Content>
