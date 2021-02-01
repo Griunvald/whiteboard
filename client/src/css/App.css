@@ -4,20 +4,19 @@
 
 /* Toolbar */
 .toolbar-container {
-  width: 75px;
-  /* display: inline; */
+  width: 70px;
   border: 1px solid black;
-  padding-left: 12px;
   padding-top: 30px;
+  padding-bottom: 18px;
 }
 
 .toolbar-item {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 40px;
   text-align: center;
 }
 
-.toolbar-item .trash:hover {
+.toolbar-item :hover {
   cursor: pointer;
 }
 

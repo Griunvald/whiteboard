@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Item } from 'semantic-ui-react';
 import firebase from '../config/firebase';
 import { selectColor, selectSize } from '../actions/toolbarActions';
 import { useDispatch } from 'react-redux';
@@ -18,66 +18,101 @@ const Toolbar = () => {
 
   return (
     <div className="toolbar-container">
-      <div
-        className="toolbar-item"
-        onClick={() => dispatch(selectColor('black'))}
-      >
-        <Icon name="pencil alternate" size="big" fitted />
-      </div>
-      <div
-        className="toolbar-item"
-        onClick={() => dispatch(selectColor('white'))}
-      >
-        <Icon name="eraser" size="big" fitted />
-      </div>
-      <div className="toolbar-item" onClick={() => dispatch(selectSize(2))}>
-        <Icon name="square full" size="mini" fitted />
-      </div>
-      <div className="toolbar-item" onClick={() => dispatch(selectSize(3))}>
-        <Icon name="square full" size="tiny" fitted />
-      </div>
-      <div className="toolbar-item" onClick={() => dispatch(selectSize(4))}>
-        <Icon name="square full" size="small" fitted />
-      </div>
-      <div
-        className="toolbar-item"
-        onClick={() => dispatch(selectColor('black'))}
-      >
-        <Icon name="circle" size="big" fitted color="black" />
-      </div>
-      <div
-        className="toolbar-item"
-        onClick={() => dispatch(selectColor('red'))}
-      >
-        <Icon name="circle" size="big" fitted color="red" />
-      </div>
-      <div
-        className="toolbar-item"
-        onClick={() => dispatch(selectColor('green'))}
-      >
-        <Icon name="circle" size="big" fitted color="green" />
-      </div>
-      <div
-        className="toolbar-item"
-        onClick={() => dispatch(selectColor('blue'))}
-      >
-        <Icon name="circle" size="big" fitted color="blue" />
-      </div>
-      <div
-        className="toolbar-item"
-        onClick={() => dispatch(selectColor('orange'))}
-      >
-        <Icon name="circle" size="big" fitted color="orange" />
-      </div>
-      <div
-        className="toolbar-item"
-        onClick={() => dispatch(selectColor('hotpink'))}
-      >
-        <Icon name="circle" size="big" fitted color="pink" />
-      </div>
-      <div className="toolbar-item trash" onClick={clearCanvas}>
-        <Icon name="trash" size="big" fitted color="black" />
-      </div>
+      <Item.Group link>
+        <Item
+          className="toolbar-item"
+          onClick={() => dispatch(selectColor('black'))}
+        >
+          <Item.Content>
+            <Icon name="pencil alternate" size="big" fitted />
+          </Item.Content>
+        </Item>
+
+        <Item
+          className="toolbar-item"
+          onClick={() => dispatch(selectColor('white'))}
+        >
+          <Item.Content>
+            <Icon name="eraser" size="big" fitted />
+          </Item.Content>
+        </Item>
+
+        <Item className="toolbar-item" onClick={() => dispatch(selectSize(2))}>
+          <Item.Content>
+            <Icon name="square full" size="mini" fitted />
+          </Item.Content>
+        </Item>
+
+        <Item className="toolbar-item" onClick={() => dispatch(selectSize(3))}>
+          <Item.Content>
+            <Icon name="square full" size="tiny" fitted />
+          </Item.Content>
+        </Item>
+
+        <Item className="toolbar-item" onClick={() => dispatch(selectSize(4))}>
+          <Item.Content>
+            <Icon name="square full" size="small" fitted />
+          </Item.Content>
+        </Item>
+
+        <Item
+          className="toolbar-item"
+          onClick={() => dispatch(selectColor('black'))}
+        >
+          <Item.Content>
+            <Icon name="circle" size="big" fitted color="black" />
+          </Item.Content>
+        </Item>
+
+        <Item
+          className="toolbar-item"
+          onClick={() => dispatch(selectColor('red'))}
+        >
+          <Item.Content>
+            <Icon name="circle" size="big" fitted color="red" />
+          </Item.Content>
+        </Item>
+
+        <Item
+          className="toolbar-item"
+          onClick={() => dispatch(selectColor('green'))}
+        >
+          <Item.Content>
+            <Icon name="circle" size="big" fitted color="green" />
+          </Item.Content>
+        </Item>
+
+        <Item
+          className="toolbar-item"
+          onClick={() => dispatch(selectColor('blue'))}
+        >
+          <Item.Content>
+            <Icon name="circle" size="big" fitted color="blue" />
+          </Item.Content>
+        </Item>
+
+        <Item
+          className="toolbar-item"
+          onClick={() => dispatch(selectColor('orange'))}
+        >
+          <Item.Content>
+            <Icon name="circle" size="big" fitted color="orange" />
+          </Item.Content>
+        </Item>
+        <Item
+          className="toolbar-item"
+          onClick={() => dispatch(selectColor('hotpink'))}
+        >
+          <Item.Content>
+            <Icon name="circle" size="big" fitted color="pink" />
+          </Item.Content>
+        </Item>
+        <Item className="toolbar-item" onClick={clearCanvas}>
+          <Item.Content>
+            <Icon name="trash" size="big" fitted color="black" />
+          </Item.Content>
+        </Item>
+      </Item.Group>
     </div>
   );
 };
