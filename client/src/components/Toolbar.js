@@ -1,7 +1,11 @@
 import React from 'react';
 import { Icon, Item } from 'semantic-ui-react';
 import firebase from '../config/firebase';
-import { selectColor, selectSize } from '../actions/toolbarActions';
+import {
+  selectColor,
+  selectSize,
+  clearLocalCanvas,
+} from '../actions/toolbarActions';
 import { useDispatch, useSelector } from 'react-redux';
 const database = firebase.database();
 
@@ -16,8 +20,12 @@ const Toolbar = () => {
         console.error('Error removing document: ', error);
       });
   };
-  const clearLocalCanvas = () => {
-    console.log('Cleared!');
+
+  const clearCanvasHandler = () => {
+    dispatch(clearLocalCanvas(true));
+    setTimeout(() => {
+      dispatch(clearLocalCanvas(false));
+    }, 500);
   };
 
   return (
@@ -118,7 +126,7 @@ const Toolbar = () => {
             </Item.Content>
           </Item>
         ) : (
-          <Item className="toolbar-item" onClick={clearLocalCanvas}>
+          <Item className="toolbar-item" onClick={clearCanvasHandler}>
             <Item.Content>
               <Icon name="trash" size="big" fitted color="black" />
             </Item.Content>
