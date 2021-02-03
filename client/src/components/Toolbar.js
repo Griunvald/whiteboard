@@ -2,11 +2,12 @@ import React from 'react';
 import { Icon, Item } from 'semantic-ui-react';
 import firebase from '../config/firebase';
 import { selectColor, selectSize } from '../actions/toolbarActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 const database = firebase.database();
 
 const Toolbar = () => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.authenticated);
   const clearCanvas = () => {
     database
       .ref('draw')
@@ -14,6 +15,9 @@ const Toolbar = () => {
       .catch(function (error) {
         console.error('Error removing document: ', error);
       });
+  };
+  const clearLocalCanvas = () => {
+    console.log('Cleared!');
   };
 
   return (
@@ -107,11 +111,19 @@ const Toolbar = () => {
             <Icon name="circle" size="big" fitted color="pink" />
           </Item.Content>
         </Item>
-        <Item className="toolbar-item" onClick={clearCanvas}>
-          <Item.Content>
-            <Icon name="trash" size="big" fitted color="black" />
-          </Item.Content>
-        </Item>
+        {isAuthenticated ? (
+          <Item className="toolbar-item" onClick={clearCanvas}>
+            <Item.Content>
+              <Icon name="trash" size="big" fitted color="black" />
+            </Item.Content>
+          </Item>
+        ) : (
+          <Item className="toolbar-item" onClick={clearLocalCanvas}>
+            <Item.Content>
+              <Icon name="trash" size="big" fitted color="black" />
+            </Item.Content>
+          </Item>
+        )}
       </Item.Group>
     </div>
   );

@@ -8,7 +8,7 @@ const database = firebase.database();
 const Canvas = (data) => {
   const currentColor = useSelector((state) => state.toolbar.color);
   const currentStrokeWeight = useSelector((state) => state.toolbar.size);
-  console.log(currentColor);
+
   const setup = (p, canvasParentRef) => {
     p.createCanvas(1000, 1000).parent(canvasParentRef);
 
