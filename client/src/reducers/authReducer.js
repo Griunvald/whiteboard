@@ -1,3 +1,4 @@
+import randomNumber from '../utils/randomNumber';
 const SIGN_IN_USER = 'SIGN_IN_USER';
 const SIGN_OUT_USER = 'SIGN_OUT_USER';
 
@@ -16,6 +17,7 @@ const authReducer = (state = initialState, { type, payload }) => {
           displayName: payload.displayName,
           email: payload.email,
           photoURL: payload.photoURL,
+          boardId: randomNumber(),
         },
       };
     case SIGN_OUT_USER:
