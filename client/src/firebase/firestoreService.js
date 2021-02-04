@@ -1,5 +1,5 @@
 import firebase from '../config/firebase';
-import randomNumber from './randomNumber';
+import randomNumber from '../utils/randomNumber';
 
 const db = firebase.firestore();
 

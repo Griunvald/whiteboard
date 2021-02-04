@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { openModal } from '../actions/modalActions';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { logOutFirebase } from '../utils/firebaseService';
+import { logOutFirebase } from '../firebase/firebaseService';
 import {
   Menu,
   Container,
