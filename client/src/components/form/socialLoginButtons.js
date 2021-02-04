@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'semantic-ui-react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../../actions/modalActions';
-import { socialLogin } from '../../utils/firebaseService';
+import { socialLogin } from '../../firebase/firebaseService';
 
 export const SocialLogin = () => {
   const dispatch = useDispatch();

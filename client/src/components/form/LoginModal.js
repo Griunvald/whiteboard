@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import DynamicInput from './DynamicInput';
-import { logInWithEmail } from '../../utils/firebaseService';
+import { logInWithEmail } from '../../firebase/firebaseService';
 import ModalWrapper from '../modal/ModalWrapper';
 import SocialLoginButtons from './socialLoginButtons';
 
