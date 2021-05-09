@@ -20,8 +20,8 @@ Node.js v14 or greater and NPM v6 or greater
 ## Projet setup
 
 ```bash
-git clone https://github.com/Griunvald/whiteboard_v2.git
-cd whiteboard_v2 && cd client
+git clone https://github.com/Griunvald/whiteboard.git
+cd whiteboard && cd client
 npm install
 npm start
 ```
