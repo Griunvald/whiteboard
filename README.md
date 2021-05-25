@@ -42,5 +42,4 @@ Sign up and open two browser windows side by side. Start drawing in the first wi
 
 ## Demo
 
-Hover mouse to watch
-![Demo](https://github.com/Griunvald/whiteboard/blob/main/client/demo/whiteboard-demo.mov)
+[![Watch the video](https://github.com/Griunvald/whiteboard/blob/main/client/demo/whiteboard.png)](https://github.com/Griunvald/whiteboard/blob/main/client/demo/whiteboard-demo.mov)
