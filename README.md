@@ -42,4 +42,4 @@ Sign up and open two browser windows side by side. Start drawing in the first wi
 
 ## Demo
 
-![look at this](https://github.com/Griunvald/whiteboard/blob/main/client/demo/whiteboard.png)
+![look at this](https://github.com/Griunvald/whiteboard/blob/main/demo/whiteboard.png)
