@@ -40,6 +40,8 @@ REACT_APP_MEASUREMENT_ID=YOUR_REACT_APP_MEASUREMENT_ID
 
 Sign up and open two browser windows side by side. Start drawing in the first window to see instant changes in the second window
 
-## Demo
+## Live demo
+
+https://whiteboard-v2.web.app
 
 ![look at this](https://github.com/Griunvald/whiteboard/blob/main/demo/whiteboard.png)
